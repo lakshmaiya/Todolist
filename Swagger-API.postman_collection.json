@@ -1,0 +1,226 @@
+{
+	"info": {
+		"_postman_id": "2476b826-f8a7-43cb-b99c-ffd2f06c39d2",
+		"name": "Swagger-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Task",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "task_name",
+							"value": "New task",
+							"description": "Required field",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "This is test description",
+							"description": "Required field",
+							"type": "text"
+						},
+						{
+							"key": "user_id",
+							"value": "1",
+							"description": "Required field",
+							"type": "text"
+						},
+						{
+							"key": "list_name",
+							"value": "New list",
+							"description": "Required field",
+							"type": "text"
+						},
+						{
+							"key": "start_date",
+							"value": "2018-11-29 14:30:00",
+							"description": "Required field, date format - YYYY-MM-DD H:i:s",
+							"type": "text"
+						},
+						{
+							"key": "end_date",
+							"value": "2018-11-30 14:30:00",
+							"description": "Required field, date format - YYYY-MM-DD H:i:s",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/todolist/create-task",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"todolist",
+						"create-task"
+					]
+				},
+				"description": "Create new task"
+			},
+			"response": []
+		},
+		{
+			"name": "Get task list",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost/todolist/get-task-list?page_no=1&user_id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"todolist",
+						"get-task-list"
+					],
+					"query": [
+						{
+							"key": "page_no",
+							"value": "1"
+						},
+						{
+							"key": "user_id",
+							"value": "1"
+						}
+					]
+				},
+				"description": "Get task list as per user id"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Task Status",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost/todolist/get-task-status?user_id=1&task_id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"todolist",
+						"get-task-status"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "1",
+							"description": "Required field"
+						},
+						{
+							"key": "task_id",
+							"value": "1"
+						}
+					]
+				},
+				"description": "Get task status as per user and task ID"
+			},
+			"response": []
+		},
+		{
+			"name": "Update task status",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_id",
+							"value": "1",
+							"description": "Required field",
+							"type": "text"
+						},
+						{
+							"key": "task_id",
+							"value": "1",
+							"description": "Required field",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "STARTED",
+							"description": "Required field, possible values - NOT-STARTED,STARTED,IN-PROGRESS,CANCELED,COMPLETE",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/todolist/update-task-satus",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"todolist",
+						"update-task-satus"
+					]
+				},
+				"description": "update task status as per user and task ID"
+			},
+			"response": []
+		}
+	]
+}
